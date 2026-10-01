@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Hospital_system.Models.Department>
+
+<h1>All Departments</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Doctors</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var department in Model)
+        {
+            <tr>
+                <td>@department.DepartmentID</td>
+                <td>@department.DepartmentName</td>
+                <td>@department.Description</td>
+                <td>
+                    @foreach (var doctor in department.Doctors)
+                    {
+                        <div>@doctor.Name</div>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

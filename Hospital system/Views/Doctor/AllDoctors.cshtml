@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Hospital_system.Models.Doctor>
+
+<h1>All Doctors</h1>
+
+<table class="table table-striped align-middle">
+    <thead>
+        <tr>
+            <th scope="col">Image</th>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Age</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Salary</th>
+            <th scope="col">Department</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var doctor in Model)
+        {
+            <tr>
+                <td>
+                    @if (!string.IsNullOrEmpty(doctor.Image))
+                    {
+                        <img src="~/images/@doctor.Image" alt="@doctor.Name" width="40" height="40" class="rounded-circle" />
+                    }
+                    else
+                    {
+                        <span>No Image</span>
+                    }
+                </td>
+                <td>@doctor.DoctorID</td>
+                <td>@doctor.Name</td>
+                <td>@doctor.Age</td>
+                <td>@doctor.Email</td>
+                <td>@doctor.Phone</td>
+                <td>@doctor.Salary</td>
+                <td>@doctor.Department?.DepartmentName</td>
+            </tr>
+        }
+    </tbody>
+</table>

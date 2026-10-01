@@ -1,0 +1,25 @@
+﻿@model Hospital_system.Models.Department
+
+<h1>@Model.DepartmentName</h1>
+
+<p><strong>Description:</strong> @Model.Description</p>
+
+<h2>Doctors in this Department</h2>
+
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Doctor Name</th>
+            <th>Doctor Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var doctor in Model.Doctors)
+        {
+            <tr>
+                <td>@doctor.Name</td>
+                <td>@doctor.Email</td>
+            </tr>
+        }
+    </tbody>
+</table>
